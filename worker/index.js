@@ -8,8 +8,6 @@ const options = {
 };
 
 const client = new require('twitter')(options);
-const LIST_ID = 1056957229243490300;
-const LIST_DEFI_ID = 1086892152649629700;
 
 function readStatuses(slug, count, cb) {
   const SCREEN_NAME = 'yurasherman';
@@ -20,14 +18,20 @@ function readStatuses(slug, count, cb) {
       count,
       owner_screen_name: SCREEN_NAME,
     },
-    (error, tweets, res) => {
+    (error, tweets) => {
       cb(error, tweets);
     }
   );
 }
 
+function cashTags(text) {
+  const tags = text.match(/(^|\s+)\$[a-zA-Z]{2,6}/gm);
+  // remove duplicate cashtags and trim whitespace
+  return tags ? [...new Set(tags.map(tag => tag.trim()))] : [];
+}
+
 readStatuses('alt-fa', 20, (err, tweets) => {
   tweets.map(tweet => {
-    console.log(`${tweet.user.screen_name} : ${tweet.text}`);
+    console.log(`${cashTags(tweet.text)} : ${tweet.text}\n\n\n`);
   });
 });
