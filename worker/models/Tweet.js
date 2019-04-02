@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
-const signalSchema = require('./Signal');
-const traderSchema = require('./Trader');
 
 // TODO: expland schema to to Coin and Trader subdocuments
 
@@ -13,5 +11,12 @@ const tweetSchema = new Schema({
   //trader: traderSchema,
   trader: String, // for simplicty
 });
+
+tweetSchema.statics.latestId = async function() {
+  const latestTweet = await this.find({})
+    .sort('-id')
+    .limit(1);
+  return latestTweet[0].id;
+};
 
 mongoose.model('tweets', tweetSchema);

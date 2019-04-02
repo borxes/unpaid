@@ -12,6 +12,7 @@ const client = new require('twitter')(options);
 // returns a promise as a callback to client.get is not provided
 function readStatuses(slug, count, since_id) {
   const SCREEN_NAME = 'yurasherman';
+  console.log(`fetching statuses since ${since_id}`);
   return client.get('lists/statuses', {
     slug,
     count,
