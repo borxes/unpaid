@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "async": "^2.6.2",
+    "mongoose": "^5.4.20",
     "twitter": "^1.7.1"
   },
   "devDependencies": {
