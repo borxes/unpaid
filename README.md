@@ -1,3 +1,3 @@
 # unpaidgroup
 
-Social media signals aggregation and ML
+Social media signals aggregation

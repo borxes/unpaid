@@ -1,0 +1,19 @@
+{
+  "name": "unpaid",
+  "version": "1.0.0",
+  "description": "Social media signals aggregation",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/borxes/unpaid.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/borxes/unpaid/issues"
+  },
+  "homepage": "https://github.com/borxes/unpaid#readme"
+}
