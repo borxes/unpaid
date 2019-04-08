@@ -21,6 +21,7 @@ app.use(
 );
 
 require('./routes/coinsRoute')(app);
+require('./routes/dailyRoute')(app);
 
 if (process.env.NODE_ENV === 'production') {
   // make sure Express will serve up production assests like main.js / css

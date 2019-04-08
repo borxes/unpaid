@@ -4,7 +4,13 @@
   "description": "Social media signals aggregation",
   "main": ".eslintrc.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server \" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+
   },
   "repository": {
     "type": "git",
@@ -22,6 +28,7 @@
     "eslint": "^5.16.0",
     "express": "^4.16.4",
     "jest": "^24.7.1",
+    "moment": "^2.24.0",
     "mongoose": "^5.4.21"
   }
 }
