@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import Header from './components/Header';
+import GlobalTable from './components/GlobalTable';
+
 class App extends Component {
   state = { dailyTokens: [] };
 
@@ -19,12 +22,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Header />
         <header>Daily Hype</header>
-        {this.state.dailyTokens.map(row => (
-          <div key={row[0]}>
-            Token: {row[0]} Mentions: {row[1]}
-          </div>
-        ))}
+        <GlobalTable
+          signals={this.state.dailyTokens}
+          header={'Daily Signals'}
+        />
       </div>
     );
   }
