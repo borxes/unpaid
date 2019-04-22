@@ -20,8 +20,7 @@ const styles = theme => ({
 });
 
 function GlobalTable(props) {
-  const { header, signals, classes } = props;
-  console.log(signals);
+  const { signals, changes, classes } = props;
 
   return (
     <Paper className={classes.root}>
@@ -30,7 +29,7 @@ function GlobalTable(props) {
           <TableRow>
             <TableCell>Coin</TableCell>
             <TableCell align="right">Signals #</TableCell>
-            <TableCell align="right">1h Change (BTC)</TableCell>
+            <TableCell align="right">1h Change (USD)</TableCell>
             <TableCell align="right">24h Change</TableCell>
             <TableCell align="right">7d Change</TableCell>
           </TableRow>
@@ -42,9 +41,15 @@ function GlobalTable(props) {
                 {row[0]}
               </TableCell>
               <TableCell align="right">{row[1]}</TableCell>
-              <TableCell align="right">--</TableCell>
-              <TableCell align="right">--</TableCell>
-              <TableCell align="right">--</TableCell>
+              <TableCell align="right">
+                {changes ? changes[row[0]].h1Change + '%' : '--'}
+              </TableCell>
+              <TableCell align="right">
+                {changes ? changes[row[0]].d1Change + '%' : '--'}
+              </TableCell>
+              <TableCell align="right">
+                {changes ? changes[row[0]].d7Change + '%' : '--'}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
